@@ -9,10 +9,10 @@ Datum izpisa:;18.05.2025;;;
 
 Ra\uFFFDun;RANDOM_ACCOUNT_1;;;
 Valuta;Za\uFFFDetno stanje;Breme;Dobro;Kon\uFFFDno stanje;
-EUR;${(Math.random() * 1000).toFixed(2).replace('.', ',')};${(Math.random() * 1000).toFixed(2).replace('.', ',')};${(Math.random() * 1000).toFixed(2).replace('.', ',')};${(Math.random() * 1000).toFixed(2).replace('.', ',')};
+EUR;100;100;100;100;
 ;;;;
 Valuta;Datum valute;Datum knji\uFFFDnja;ID transakcije;\uFFFDt. za reklamacijo;Prejemnik / Pla\uFFFDnik;Breme;Dobro;Referenca pla\uFFFDnika;Referenca prejemnika;Opis prejemnika
-EUR;18.05.2025;18.05.2025;RANDOM_ID_1;RANDOM_ID_2;RANDOM_PAYEE_1;0,40;;RANDOM_REF_1;;RANDOM_MEMO_1
+EUR;18.05.2025;18.05.2025;RANDOM_ID_1;RANDOM_ID_2;RANDOM_PAYEE_1;;0,40;RANDOM_REF_1;;RANDOM_MEMO_1
 EUR;17.05.2025;17.05.2025;;RANDOM_ID_3;RANDOM_PAYEE_2;45.950,00;;;;RANDOM_MEMO_2
 EUR;14.05.2025;14.05.2025;RANDOM_ID_4;RANDOM_ID_5;RANDOM_PAYEE_3;3,39;;RANDOM_REF_2;RANDOM_REF_3;RANDOM_MEMO_3`;
 
@@ -50,7 +50,7 @@ EUR;14.05.2025;14.05.2025;RANDOM_ID_4;RANDOM_ID_5;RANDOM_PAYEE_3;3,39;;RANDOM_RE
       Date: '18.05.2025',
       Payee: 'RANDOM_PAYEE_1',
       Memo: 'RANDOM_MEMO_1',
-      Amount: '-0.40',
+      Amount: '0.40',
     });
     expect(result[1]).toEqual({
       Date: '17.05.2025',

@@ -3,7 +3,7 @@ import { InvalidHeaderError } from '../utils/errors';
 
 describe('convertNlb', () => {
   const mockNlbCsvContent = `Opis/Description;Kategorija/Category;+/-;Znesek/Amount;Valuta/Currency;Datum plačila/Value date;Naziv prejemnika/plačnika/Counter party name;Račun prejemnika/plačnika/Counter party Account;Status/Status;BIC koda/BIC Code;Menjalni tečaj/Foreign Exchange rate;Referenca prejemnika/Creditor Reference;Datum poravnave/Settlement date;Dodatni stroški/Additional Charges;Naslov prejemnika/plačnika/Counter party Address;ID transakcije/Transaction ID;Namen/Purpose
-RANDOM_MEMO_1;RANDOM_CATEGORY_1;+;0,40;EUR;12-05-2025;RANDOM_PAYEE_1;RANDOM_ACCOUNT_1;;RANDOM_BIC_1;;RANDOM_REF_1;12-05-2025;;RANDOM_ADDRESS_1;RANDOM_ID_1;RANDOM_PURPOSE_1
+RANDOM_MEMO_1;RANDOM_CATEGORY_1;-;0,40;EUR;12-05-2025;RANDOM_PAYEE_1;RANDOM_ACCOUNT_1;;RANDOM_BIC_1;;RANDOM_REF_1;12-05-2025;;RANDOM_ADDRESS_1;RANDOM_ID_1;RANDOM_PURPOSE_1
 RANDOM_MEMO_2;RANDOM_CATEGORY_2;+;45.950,00;EUR;08-05-2025;RANDOM_PAYEE_2;RANDOM_ACCOUNT_2;;RANDOM_BIC_2;;RANDOM_REF_2;08-05-2025;;RANDOM_ADDRESS_2;RANDOM_ID_2;RANDOM_PURPOSE_2
 RANDOM_MEMO_3;RANDOM_CATEGORY_3;+;3,39;EUR;07-05-2025;RANDOM_PAYEE_3;RANDOM_ACCOUNT_3;;RANDOM_BIC_3;;RANDOM_REF_3;07-05-2025;;RANDOM_ADDRESS_3;RANDOM_ID_3;RANDOM_PURPOSE_3`;
 
@@ -41,7 +41,7 @@ RANDOM_MEMO_3;RANDOM_CATEGORY_3;+;3,39;EUR;07-05-2025;RANDOM_PAYEE_3;RANDOM_ACCO
       Date: '12-05-2025',
       Payee: 'RANDOM_PAYEE_1',
       Memo: 'RANDOM_MEMO_1',
-      Amount: '0.40',
+      Amount: '-0.40',
     });
     expect(result[1]).toEqual({
       Date: '08-05-2025',
