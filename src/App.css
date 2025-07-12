@@ -82,3 +82,7 @@ th {
   border-radius: 4px;
   margin-top: 10px;
 }
+
+.mismatch td {
+  background-color: #fddddd;
+}
