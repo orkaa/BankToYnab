@@ -6,7 +6,7 @@ import { InvalidHeaderError } from '../utils/errors';
 const expectedHeader = [
   "Valuta",
   "Datum valute",
-  "Datum knji\uFFFDenja",
+  "Datum knji\uFFFDnja",
   "ID transakcije",
   "\uFFFDt. za reklamacijo",
   "Prejemnik / Pla\uFFFDnik",
@@ -51,14 +51,14 @@ export const convertDelavska = (file: File): Promise<YnabRow[]> => {
                 Date: date,
                 Payee: payee,
                 Memo: memo,
-                Amount: (-breme).toString(),
+                Amount: (-breme).toFixed(2),
               });
             } else if (!isNaN(dobro) && dobro !== 0) {
               ynabRows.push({
                 Date: date,
                 Payee: payee,
                 Memo: memo,
-                Amount: dobro.toString(),
+                Amount: dobro.toFixed(2),
               });
             }
           }

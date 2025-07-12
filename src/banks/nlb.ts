@@ -48,7 +48,7 @@ export const convertNlb = (file: File): Promise<YnabRow[]> => {
               Date: date,
               Payee: payee,
               Memo: memo,
-              Amount: sign === '+' ? amount.toString() : (-amount).toString(),
+              Amount: (sign === '+' ? amount : -amount).toFixed(2),
             });
           }
         }
