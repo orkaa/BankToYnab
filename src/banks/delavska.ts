@@ -1,7 +1,7 @@
 
 import Papa from 'papaparse';
-import { YnabRow } from './ynab';
-import { InvalidHeaderError } from './errors';
+import { YnabRow } from '../utils/ynab';
+import { InvalidHeaderError } from '../utils/errors';
 
 const expectedHeader = [
   "Valuta",

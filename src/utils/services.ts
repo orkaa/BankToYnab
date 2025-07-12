@@ -1,6 +1,6 @@
 
-import { convertDelavska } from './delavska';
-import { convertNlb } from './nlb';
+import { convertDelavska } from '../banks/delavska';
+import { convertNlb } from '../banks/nlb';
 import { YnabRow } from './ynab';
 
 export const convertFile = (file: File, bank: string): Promise<YnabRow[]> => {

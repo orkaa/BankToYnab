@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './App.css';
-import BankSelector from './BankSelector';
-import FileUploader from './FileUploader';
-import DataTable from './DataTable';
-import DownloadButton from './DownloadButton';
-import { convertFile } from './services';
-import { YnabRow } from './ynab';
-import HeaderMismatch from './HeaderMismatch';
-import { InvalidHeaderError } from './errors';
+import BankSelector from './components/BankSelector';
+import FileUploader from './components/FileUploader';
+import DataTable from './components/DataTable';
+import DownloadButton from './components/DownloadButton';
+import HeaderMismatch from './components/HeaderMismatch';
+import { convertFile } from './utils/services';
+import { YnabRow } from './utils/ynab';
+import { InvalidHeaderError } from './utils/errors';
 
 function App() {
   const [selectedBank, setSelectedBank] = useState<string>('');
