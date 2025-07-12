@@ -16,15 +16,18 @@ EUR;18.05.2025;18.05.2025;RANDOM_ID_1;RANDOM_ID_2;RANDOM_PAYEE_1;;0,40;RANDOM_RE
 EUR;17.05.2025;17.05.2025;;RANDOM_ID_3;RANDOM_PAYEE_2;45.950,00;;;;RANDOM_MEMO_2
 EUR;14.05.2025;14.05.2025;RANDOM_ID_4;RANDOM_ID_5;RANDOM_PAYEE_3;3,39;;RANDOM_REF_2;RANDOM_REF_3;RANDOM_MEMO_3`;
 
+  let mockFileReader: jest.Mock;
+
   beforeAll(() => {
     // Mock FileReader
+    mockFileReader = jest.fn().mockImplementation(() => ({
+      readAsText: jest.fn(),
+      onload: null,
+      onerror: null,
+    }));
     Object.defineProperty(global, 'FileReader', {
       writable: true,
-      value: jest.fn().mockImplementation(() => ({
-        readAsText: jest.fn(),
-        onload: null,
-        onerror: null,
-      })),
+      value: mockFileReader,
     });
   });
 
@@ -32,7 +35,7 @@ EUR;14.05.2025;14.05.2025;RANDOM_ID_4;RANDOM_ID_5;RANDOM_PAYEE_3;3,39;;RANDOM_RE
     const mockFile = new File([mockDelavskaCsvContent], 'delavska.csv', { type: 'text/csv' });
 
     // Simulate FileReader onload event
-    (FileReader as jest.Mock).mockImplementationOnce(() => {
+    mockFileReader.mockImplementationOnce(() => {
       const reader = {
         readAsText: jest.fn((file, encoding) => {
           reader.onload({ target: { result: mockDelavskaCsvContent } });
