@@ -39,7 +39,7 @@ export const convertNlb = (file: File): Promise<YnabRow[]> => {
           const date = row['Datum plačila'];
           const payee = row['Naziv prejemnika/plačnika'];
           const memo = row['Namen'];
-          const amount = parseFloat(row['Znesek'].replace('.', '').replace(',', '.'));
+          const amount = parseFloat(row['Znesek']);
           const sign = row['+/-'];
 
           if (!isNaN(amount)) {
