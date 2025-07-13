@@ -4,23 +4,22 @@ import { YnabRow } from '../utils/ynab';
 import { InvalidHeaderError } from '../utils/errors';
 
 const expectedHeader = [
-  'Opis/Description',
-  'Kategorija/Category',
+  'Namen',
+  'Kategorija',
   '+/-',
-  'Znesek/Amount',
-  'Valuta/Currency',
-  'Datum plačila/Value date',
-  'Naziv prejemnika/plačnika/Counter party name',
-  'Račun prejemnika/plačnika/Counter party Account',
-  'Status/Status',
-  'BIC koda/BIC Code',
-  'Menjalni tečaj/Foreign Exchange rate',
-  'Referenca prejemnika/Creditor Reference',
-  'Datum poravnave/Settlement date',
-  'Dodatni stroški/Additional Charges',
-  'Naslov prejemnika/plačnika/Counter party Address',
-  'ID transakcije/Transaction ID',
-  'Namen/Purpose'
+  'Znesek',
+  'Valuta',
+  'Datum plačila',
+  'Naziv prejemnika/plačnika',
+  'Naslov prejemnika/plačnika',
+  'Račun prejemnika/plačnika',
+  'BIC koda',
+  'Status',
+  'Menjalni tečaj',
+  'Referenca prejemnika',
+  'Datum poravnave',
+  'Dodatni stroški',
+  'ID transakcije'
 ];
 
 export const convertNlb = (file: File): Promise<YnabRow[]> => {
@@ -37,10 +36,10 @@ export const convertNlb = (file: File): Promise<YnabRow[]> => {
 
         const ynabRows: YnabRow[] = [];
         for (const row of results.data as any[]) {
-          const date = row['Datum plačila/Value date'];
-          const payee = row['Naziv prejemnika/plačnika/Counter party name'];
-          const memo = row['Opis/Description'];
-          const amount = parseFloat(row['Znesek/Amount'].replace('.', '').replace(',', '.'));
+          const date = row['Datum plačila'];
+          const payee = row['Naziv prejemnika/plačnika'];
+          const memo = row['Namen'];
+          const amount = parseFloat(row['Znesek'].replace('.', '').replace(',', '.'));
           const sign = row['+/-'];
 
           if (!isNaN(amount)) {

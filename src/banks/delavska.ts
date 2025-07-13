@@ -6,7 +6,7 @@ import { InvalidHeaderError } from '../utils/errors';
 const expectedHeader = [
   "Valuta",
   "Datum valute",
-  "Datum knji\uFFFDnja",
+  "Datum knji\uFFFDenja",
   "ID transakcije",
   "\uFFFDt. za reklamacijo",
   "Prejemnik / Pla\uFFFDnik",
