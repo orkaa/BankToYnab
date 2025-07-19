@@ -6,8 +6,8 @@ body {
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
   padding: 0;
-  background-color: #f4f7f6;
-  color: #333;
+  background-color: #282c34;
+  color: #f4f7f6;
 }
 
 .App {
@@ -25,7 +25,7 @@ body {
 }
 
 main > div {
-  background-color: white;
+  background-color: #333;
   padding: 20px;
   margin-bottom: 20px;
   border-radius: 8px;
@@ -41,6 +41,8 @@ select, input[type="file"] {
   padding: 8px;
   border-radius: 4px;
   border: 1px solid #ccc;
+  background-color: #333;
+  color: #f4f7f6;
 }
 
 button {
@@ -66,13 +68,13 @@ table {
 }
 
 th, td {
-  border: 1px solid #ddd;
+  border: 1px solid #444;
   padding: 8px;
   text-align: left;
 }
 
 th {
-  background-color: #f2f2f2;
+  background-color: #282c34;
 }
 
 .error {
@@ -84,5 +86,5 @@ th {
 }
 
 .mismatch td {
-  background-color: #fddddd;
+  background-color: #5e3c3c;
 }
