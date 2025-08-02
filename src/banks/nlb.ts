@@ -37,8 +37,9 @@ export const convertNlb = (file: File): Promise<YnabRow[]> => {
         const ynabRows: YnabRow[] = [];
         for (const row of results.data as any[]) {
           const date = row['Datum plačila'];
-          const payee = row['Naziv prejemnika/plačnika'];
-          const memo = row['Namen'];
+          // Remove commas from payee and memo to prevent CSV parsing issues
+          const payee = row['Naziv prejemnika/plačnika'].replace(/,/g, '');
+          const memo = row['Namen'].replace(/,/g, '');
           const amount = parseFloat(row['Znesek']);
           const sign = row['+/-'];
 

@@ -41,8 +41,9 @@ export const convertDelavska = (file: File): Promise<YnabRow[]> => {
             if (row.length < 11) continue;
 
             const date = row[1];
-            const payee = row[5];
-            const memo = row[10];
+            // Remove commas from payee and memo to prevent CSV parsing issues
+            const payee = row[5].replace(/,/g, '');
+            const memo = row[10].replace(/,/g, '');
             const breme = parseFloat(row[6].replace('.', '').replace(',', '.'));
             const dobro = parseFloat(row[7].replace('.', '').replace(',', '.'));
 
