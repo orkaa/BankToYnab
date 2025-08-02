@@ -40,7 +40,8 @@ export const convertNlb = (file: File): Promise<YnabRow[]> => {
           // Remove commas from payee and memo to prevent CSV parsing issues
           const payee = row['Naziv prejemnika/plačnika'].replace(/,/g, '');
           const memo = row['Namen'].replace(/,/g, '');
-          const amount = parseFloat(row['Znesek']);
+          // Remove thousand separators and replace decimal comma with a period
+          const amount = parseFloat(row['Znesek'].replace(/\./g, '').replace(',', '.'));
           const sign = row['+/-'];
 
           if (!isNaN(amount)) {
